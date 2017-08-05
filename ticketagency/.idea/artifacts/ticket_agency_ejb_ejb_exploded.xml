@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="ticket-agency-ejb:ejb exploded">
+    <output-path>$PROJECT_DIR$/ticket-agency-ejb/target/ticket-agency-ejb-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ticket-agency-ejb/ejb/EJB" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ticket-agency-ejb/target/ticket-agency-ejb-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="ticket-agency-ejb" />
+    </root>
+  </artifact>
+</component>

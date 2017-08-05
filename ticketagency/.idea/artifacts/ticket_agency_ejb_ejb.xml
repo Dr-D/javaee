@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="ticket-agency-ejb:ejb">
+    <output-path>$PROJECT_DIR$/ticket-agency-ejb/target</output-path>
+    <root id="archive" name="ticket-agency-ejb-1.0-SNAPSHOT.jar">
+      <element id="artifact" artifact-name="ticket-agency-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>

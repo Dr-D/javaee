@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/myejbs/myejbs.iml" filepath="$PROJECT_DIR$/myejbs/myejbs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ticket-agency-ejb/ticket-agency-ejb.iml" filepath="$PROJECT_DIR$/ticket-agency-ejb/ticket-agency-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ticket-agency-ejb-client/ticket-agency-ejb-client.iml" filepath="$PROJECT_DIR$/ticket-agency-ejb-client/ticket-agency-ejb-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ticketagency.iml" filepath="$PROJECT_DIR$/ticketagency.iml" />
+    </modules>
+  </component>
+</project>

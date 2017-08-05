@@ -1,0 +1,4 @@
+com/drd/ejb/NoSuchSeatException.class
+com/drd/ejb/SeatBookedException.class
+com/drd/ejb/TheatreBox.class
+com/drd/ejb/Seat.class
