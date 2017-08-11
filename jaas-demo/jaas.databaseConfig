@@ -1,0 +1,7 @@
+DatabaseConfig {
+    com.drd.jaas.database.DatabaseLoginModule Required
+    url="jdbc:h2:./authenticate"
+    username="sa"
+    password=""
+    table="USER";
+};

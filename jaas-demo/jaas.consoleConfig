@@ -1,0 +1,3 @@
+MyConfig {
+    com.drd.jaas.simple.MyLoginModule Required debug=true;
+};
