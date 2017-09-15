@@ -1,0 +1,11 @@
+<izpack:userinput version="5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:izpack="http://izpack.org/schema/userinput" xsi:schemaLocation="http://izpack.org/schema/userinput http://izpack.org/schema/5.0/izpack-userinput-5.0.xsd">
+
+    <panel id="input.test">
+        <field type="staticText" txt="Testing user inputs:"/>
+
+        <field type="text" variable="NAME_VAR" conditionid="!database.h2">
+            <spec txt="Enter name:" size="25" set="Default Name"/>
+        </field>
+    </panel>
+
+</izpack:userinput>

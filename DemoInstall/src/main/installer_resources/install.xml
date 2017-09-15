@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
-
 <installation version="1.0">
     <info>
         <appname>Hello World Application</appname>
-        <appversion>1.0</appversion>
+        <appversion>${project.version}</appversion>
         <authors>
             <author name="Your Givenname and Lastname" email="givenname.lastname@hello-world.org"/>
         </authors>
@@ -17,7 +15,16 @@
         <langpack iso3="deu"/>
     </locale>
 
+    <variables>
+        <variable name="NAME_VAR" value="Mickey"/>
+    </variables>
+
+    <dynamicvariables>
+        <variable name="MY_DYNAMIC" value="Test Dynamic"/>
+    </dynamicvariables>
+
     <resources>
+        <res id="userInputSpec.xml" src="userInput.xml"/>
         <res id="installer.langsel.img" src="images/helloworld_image1.png" />
         <res id="Installer.image" src="images/helloworld_image2.png" />
         <res id="LicencePanel.licence" src="Licence.txt"/>
@@ -26,6 +33,7 @@
 
     <panels>
         <panel classname="HelloPanel"/>
+        <panel classname="UserInputPanel" id="input.test"/>
         <panel classname="InfoPanel"/>
         <panel classname="LicencePanel"/>
         <panel classname="TargetPanel"/>
