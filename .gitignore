@@ -1,0 +1,16 @@
+# IntelliJ files
+*/.idea/
+*/*.iml
+
+# IntelliJ upgrade artifacts:
+*/projectFilesBackup*
+
+# Maven build dirs:
+/*/target/
+
+# Build artifacts:
+/*/transaction.log
+
+#emacs temp files
+/*~
+/*/*~

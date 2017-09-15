@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.drd</groupId>
+    <artifactId>DemoInstall</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+        <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
+
+        <izpack.plugin.version>1.0-alpha-5</izpack.plugin.version>
+        <izpack.standalone.version>4.3.5</izpack.standalone.version>
+
+        <installer.name>HelloWorld_Installer-v${project.version}</installer.name>
+        <installer.resources.dir>${project.basedir}/src/main/installer_resources</installer.resources.dir>
+
+        <staging.dir>${project.build.directory}/staging</staging.dir>
+    </properties>
+
+    <build>
+        <plugins>
+            <!--Specify class with main method in jar-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.drd.install.hello.HelloWorld</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Copy resources -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven.resources.plugin.version}</version>
+                <executions>
+                    <!-- [PROCESS-RESOURCES] : Copy resources for installer to staging dir. -->
+                    <execution>
+                        <id>copy-installer-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <encoding>UTF8</encoding>
+                            <outputDirectory>${staging.dir}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <filtering>true</filtering>
+                                    <directory>${installer.resources.dir}</directory>
+                                    <excludes>
+                                        <!-- IZPack plugin copies and filters install.xml so exclude it here. -->
+                                        <exclude>install.xml</exclude>
+                                        <!-- Exclude images from filtering-->
+                                        <exclude>images/helloworld_image1.png.png</exclude>
+                                        <exclude>images/helloworld_image2.png.png</exclude>
+                                        <exclude>Licence.txt</exclude>
+                                        <exclude>Readme.txt</exclude>
+                                    </excludes>
+                                </resource>
+                                <resource>
+                                    <filtering>false</filtering>
+                                    <directory>${installer.resources.dir}</directory>
+                                    <includes>
+                                        <include>images/helloworld_image1.png.png</include>
+                                        <include>images/helloworld_image2.png.png</include>
+                                        <inlcude>Licence.txt</inlcude>
+                                        <include>Readme.txt</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- IZPack -->
+            <plugin>
+                <groupId>org.codehaus.izpack</groupId>
+                <artifactId>izpack-maven-plugin</artifactId>
+                <version>${izpack.plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.izpack</groupId>
+                        <artifactId>izpack-standalone-compiler</artifactId>
+                        <version>${izpack.standalone.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <!-- [PACKAGE] : Build IZPack installer JAR. -->
+                    <execution>
+                        <id>build-installer</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>izpack</goal>
+                        </goals>
+                        <configuration>
+                            <descriptor>${installer.resources.dir}/install.xml</descriptor>
+                            <descriptorEncoding>UTF8</descriptorEncoding>
+                            <izpackBasedir>${staging.dir}</izpackBasedir>
+                            <installerFile>${project.build.directory}/${installer.name}.jar
+                            </installerFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

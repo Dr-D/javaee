@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+
+<installation version="1.0">
+    <info>
+        <appname>Hello World Application</appname>
+        <appversion>1.0</appversion>
+        <authors>
+            <author name="Your Givenname and Lastname" email="givenname.lastname@hello-world.org"/>
+        </authors>
+        <url>http://www.hello-world.de/</url>
+    </info>
+
+    <guiprefs width="640" height="480" resizable="yes"/>
+
+    <locale>
+        <langpack iso3="eng"/>
+        <langpack iso3="deu"/>
+    </locale>
+
+    <resources>
+        <res id="installer.langsel.img" src="images/helloworld_image1.png" />
+        <res id="Installer.image" src="images/helloworld_image2.png" />
+        <res id="LicencePanel.licence" src="Licence.txt"/>
+        <res id="InfoPanel.info" src="Readme.txt"/>
+    </resources>
+
+    <panels>
+        <panel classname="HelloPanel"/>
+        <panel classname="InfoPanel"/>
+        <panel classname="LicencePanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="PacksPanel"/>
+        <panel classname="InstallPanel"/>
+        <panel classname="FinishPanel"/>
+    </panels>
+
+    <packs>
+        <pack name="HelloWorld" required="yes">
+            <description>Hello World Application Runnables</description>
+            <file src="../DemoInstall-1.0-SNAPSHOT.jar" targetdir="$INSTALL_PATH"/>
+        </pack>
+    </packs>
+
+</installation>
