@@ -23,12 +23,12 @@ public class RemoteClient {
 
     public static void main(String[] args) throws NamingException, RemoteException {
         RemoteClient remoteClient = new RemoteClient();
-        RemoteCalculator remoteCalculator = remoteClient.lookupTheatreBookerEJB();
+        RemoteCalculator remoteCalculator = remoteClient.lookupRemoteCalculator();
         int result = remoteCalculator.add(1, 2);
         System.out.printf("Result: '%d'\n", result);
     }
 
-    private RemoteCalculator lookupTheatreBookerEJB() throws NamingException {
+    private RemoteCalculator lookupRemoteCalculator() throws NamingException {
         return (RemoteCalculator) context.lookup(
                 "ejb:/rmi-wildfly-ejb-1.0-SNAPSHOT/RemoteCalculatorEJB!com.drd.remote.calc.RemoteCalculator");
     }
