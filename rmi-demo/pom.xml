@@ -10,7 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>rmi-registry</module>
+        <module>rmi-wildfly-ejb</module>
+        <module>rmi-wildfly-ejb-client</module>
     </modules>
-
 
 </project>
