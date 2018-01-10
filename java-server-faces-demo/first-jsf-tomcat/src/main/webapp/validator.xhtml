@@ -8,11 +8,16 @@
 	</h:head>
 	<h:body>
 		<h:form id="helloform" >
-			<h:inputText id="name" value="#{hello.person.name}"
-				p:placeholder="What's your name?" />
-            <h:inputText id="age" value="#{hello.person.age}"
+			Name:<h:inputText id="name" value="#{hello.person.name}"
+				p:placeholder="What's your name?" >
+                <c:validateLength for = "username" minimum="5" maximum="10"  />
+            </h:inputText>
+            <br/>
+            Age:<h:inputText id="age" value="#{hello.person.age}"
                 p:placeholder="What's your Age?" />                
 			<h:commandButton id="ok" type="submit" value="OK" action="myresponse" />
+            <br/>
+            <h:message for="name" style = "color:red"/>
 		</h:form>
 	</h:body>
 </html>

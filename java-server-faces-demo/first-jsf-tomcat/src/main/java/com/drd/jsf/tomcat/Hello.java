@@ -14,7 +14,7 @@ public class Hello implements Serializable {
     private Person person;
 
     public Hello() {
-        person = new Person();
+        person = new Person(null, 0);
     }
 
     public Person getPerson() {
