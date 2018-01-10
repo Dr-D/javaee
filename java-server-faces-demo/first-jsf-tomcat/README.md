@@ -23,7 +23,8 @@ http://localhost:8080/first-jsf-tomcat-0.0.1-SNAPSHOT/hello-world.xhtml
 You should be able to enter a name and age in the boxes and the response will show these values
 
 ## JSF - xhtml
-The xhtml standards needs to be followed e.g. <br/> not <br>.
+The xhtml standards needs to be followed e.g. `<br/> not <br>`.
+
 Uses xmlns convention where a namespace can be specified e.g. xmlns:h="http://java.sun.com/jsf/html"
 
 ## JSF Managed Beans
