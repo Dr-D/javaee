@@ -6,11 +6,16 @@
 */projectFilesBackup*
 
 # Maven build dirs:
-/*/target/
+**/target/
 
 # Build artifacts:
 /*/transaction.log
 
 #emacs temp files
-/*~
-/*/*~
+**/*~
+
+#Eclipse files
+**/.project
+**/.gitignore
+**/.settings
+**/.classpath
