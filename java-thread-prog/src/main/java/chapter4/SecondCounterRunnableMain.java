@@ -12,15 +12,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class SecondCounterLockupMain extends JPanel {
+public class SecondCounterRunnableMain extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private SecondCounterLockup sc;
+	private SecondCounterRunnable sc;
 	private JButton startB;
 	private JButton stopB;
 	
-	public SecondCounterLockupMain() {
-		sc = new SecondCounterLockup();
+	public SecondCounterRunnableMain() {
+		sc = new SecondCounterRunnable();
 		startB = new JButton("Start");
 		stopB = new JButton("Stop");
 		
@@ -32,8 +32,9 @@ public class SecondCounterLockupMain extends JPanel {
 				// disable to prevent more 'start' requests
 				startB.setEnabled(false);
 				
-				// Run the counter. Watch out, trouble here!
-				sc.runClock();
+				// Thread to run the counter
+				Thread counterThread = new Thread(sc, "SecondCounter");
+				counterThread.start();
 				
 				stopB.setEnabled(true);
 				stopB.requestFocus();
@@ -66,9 +67,9 @@ public class SecondCounterLockupMain extends JPanel {
 	}
 	
 	public static void main(String[] args) {
-		SecondCounterLockupMain scm = new SecondCounterLockupMain();
+		SecondCounterRunnableMain scm = new SecondCounterRunnableMain();
 		
-		JFrame f = new JFrame("Second Counter Lockup");
+		JFrame f = new JFrame("Second Counter Runnable");
 		f.setContentPane(scm);
 		f.setSize(320, 200);
 		f.setVisible(true);
